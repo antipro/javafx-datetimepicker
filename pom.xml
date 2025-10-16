@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>9</java.version>
+        <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <exec.mainClass>io.github.hemeroc.javafx.datetimepicker.demo.DateTimePickerDemo</exec.mainClass>
@@ -19,6 +19,7 @@
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
         <junit.platform.version>1.1.1</junit.platform.version>
         <junit.version>5.1.1</junit.version>
+        <javafx.version>23.0.1</javafx.version>
         <testfx.version>4.0.12-alpha</testfx.version>
         <testfx-openjfx-monocle.version>jdk-9+181</testfx-openjfx-monocle.version>
     </properties>
@@ -68,6 +69,17 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.openjfx -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -75,12 +87,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>3.11.0</version>
                 <configuration>
-                    <compilerArguments>
-                        <Werror/>
-                        <Xlint:all/>
-                    </compilerArguments>
+                    <source>21</source>
+                    <target>21</target>
+                    <useModulePath>true</useModulePath>
                 </configuration>
             </plugin>
             <plugin>
