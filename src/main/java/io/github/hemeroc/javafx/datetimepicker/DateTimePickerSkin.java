@@ -29,7 +29,7 @@ public class DateTimePickerSkin extends DatePickerSkin {
         if (dateTimePicker.getDateTimeValue() != null) {
             timeObjectProperty = new SimpleObjectProperty<>(this, "displayedTime", LocalTime.from(dateTimePicker.getDateTimeValue()));
         } else {
-            timeObjectProperty = new SimpleObjectProperty<>(this, "displayedTime", null);
+            timeObjectProperty = new SimpleObjectProperty<>(this, "displayedTime", LocalTime.now());
         }
 
         CustomBinding.bindBidirectional(dateTimePicker.dateTimeValueProperty(), timeObjectProperty,
